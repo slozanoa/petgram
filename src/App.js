@@ -8,6 +8,6 @@ export const App = () => (
     <GlobalStyle />
     <Logo />
     <ListOfCategories />
-    <ListOfPhotoCard />
+    <ListOfPhotoCard categoryId={1} />
   </div>
 );

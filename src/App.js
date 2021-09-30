@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import { ListOfCategories } from "./components/ListOfCategories";
 import { GlobalStyle } from "./styles/GlobalStyles";
-import { ListOfPhotoCard } from "./components/ListOfPhotoCards";
+import { Home } from "./pages/Home";
 import { Logo } from "./components/Logo";
 import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
+import { Router } from "@reach/router";
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search);
   const detailId = urlParams.get("detail");
@@ -15,10 +15,10 @@ export const App = () => {
       {detailId ? (
         <PhotoCardWithQuery id={detailId} />
       ) : (
-        <Fragment>
-          <ListOfCategories />
-          <ListOfPhotoCard categoryId={1} />
-        </Fragment>
+        <Router>
+          <Home path="/" />
+          <Home path="/pet/:id" />
+        </Router>
       )}
     </div>
   );
